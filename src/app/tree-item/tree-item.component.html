@@ -1,0 +1,22 @@
+<li class="tree-item" [ngClass]="{'has-children': HasChildren, 'is-open': ShowSubTree }">
+  <div class="header">
+    <svg *ngIf="(ShowSubTree && HasChildren)" class="feather status" (click)="ShowSubTree = !ShowSubTree" [ngClass]="Status">
+      <use xlink:href="/assets/feather-sprite.svg#chevron-down" />
+    </svg>
+    <svg *ngIf="(!ShowSubTree && HasChildren)" class="feather status" (click)="ShowSubTree = !ShowSubTree" [ngClass]="Status">
+      <use xlink:href="/assets/feather-sprite.svg#chevron-right" />
+    </svg>
+    <svg *ngIf="!HasChildren" class="feather status" [ngClass]="Status">
+      <use xlink:href="/assets/feather-sprite.svg#activity" />
+    </svg>
+  
+    <!-- <svg class="feather status" [ngClass]="{'normal': TreeItem.Severity == 2, 'warning': TreeItem.Severity == 1, 'critical': TreeItem.Severity == 0, 'deactivated':
+    TreeItem.Severity == null }">
+      <use xlink:href="/assets/feather-sprite.svg#circle" />
+    </svg> -->
+    <span class="name">{{TreeItem.Name}}</span>
+  </div>
+  <ul class="sub-tree" [class.is-visible]="ShowSubTree">
+    <tree-item *ngFor="let treeItemChilld of SortedChildren" [treeItem]="treeItemChilld"></tree-item>
+  </ul>
+</li>

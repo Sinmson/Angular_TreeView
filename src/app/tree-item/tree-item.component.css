@@ -1,0 +1,85 @@
+.sub-tree:not(.is-visible) {
+  display: none;
+}
+
+ul.tree, ul.sub-tree {
+  list-style: none;
+  padding: 2px 0 0 15px;
+  margin: 0;
+}
+
+ul.tree {
+  width: 350px;
+  height: 100%;
+  background: #333;
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 15px 0 0 15px;
+}
+
+ul.tree.dark {
+  background: #333;
+  color: #f2f2f2;
+}
+
+ul.tree.light {
+  background: #f2f2f2;
+  color: #333;
+}
+
+ul.sub-tree, .tree-item  {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+.tree-item > .header, .tree-item > .header > .name {
+  display: flex;
+  width: 100%;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tree-item > .header > .status {  
+  display: inline-block;
+  padding: 0;
+  margin: 0 5px 0 10px;
+}
+
+.tree-item > .header > .name, .tree-item.has-children > .header > .status {
+  cursor: pointer;
+}
+
+.tree-item > .header > .status.normal {
+  color: green; 
+  /* fill: green; */
+}
+
+.tree-item > .header > .status.warning {
+  color: orange; 
+  /* fill: orange; */
+}
+
+.tree-item > .header > .status.critical {
+  color: red; 
+  /* fill: red; */
+}
+
+.tree-item > .header > .status, .tree-item > .header > .status.deactivated {
+  color: grey; 
+  /* fill: grey; */
+}
+
+.feather {
+  width: 12px;
+  height: 12px;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  margin-top: 2px !important;
+}
