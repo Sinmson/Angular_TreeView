@@ -1,9 +1,9 @@
-<li class="tree-item" [ngClass]="{'has-children': HasChildren, 'is-open': ShowSubTree }">
+<li class="tree-item" [ngClass]="{'has-children': HasChildren, 'is-open': TreeItem.ShowSubTree, 'is-selected': TreeItem.IsSelected }" [hidden]="IsHidden" >
   <div class="header">
-    <svg *ngIf="(ShowSubTree && HasChildren)" class="feather status" (click)="ShowSubTree = !ShowSubTree" [ngClass]="Status">
+    <svg *ngIf="(TreeItem.ShowSubTree && HasChildren)" class="feather status" (click)="ToggleSubTreeVisibility()" [ngClass]="Status">
       <use xlink:href="/assets/feather-sprite.svg#chevron-down" />
     </svg>
-    <svg *ngIf="(!ShowSubTree && HasChildren)" class="feather status" (click)="ShowSubTree = !ShowSubTree" [ngClass]="Status">
+    <svg *ngIf="(!TreeItem.ShowSubTree && HasChildren)" class="feather status" (click)="ToggleSubTreeVisibility()" [ngClass]="Status">
       <use xlink:href="/assets/feather-sprite.svg#chevron-right" />
     </svg>
     <svg *ngIf="!HasChildren" class="feather status" [ngClass]="Status">
@@ -14,9 +14,9 @@
     TreeItem.Severity == null }">
       <use xlink:href="/assets/feather-sprite.svg#circle" />
     </svg> -->
-    <span class="name">{{TreeItem.Name}}</span>
+    <span class="name" (click)="ToggleIsSelected()">{{TreeItem.Name}}</span>
   </div>
-  <ul class="sub-tree" [class.is-visible]="ShowSubTree">
+  <ul class="sub-tree" [class.is-visible]="TreeItem.ShowSubTree">
     <tree-item *ngFor="let treeItemChilld of SortedChildren" [treeItem]="treeItemChilld"></tree-item>
   </ul>
 </li>
