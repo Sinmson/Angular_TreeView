@@ -1,179 +1,76 @@
-#app {  
-  & ul.tree, ul.sub-tree {
-    list-style: none;
-    padding: 2px 0 0 15px;
-    margin: 0;
-  }
+ul.sub-tree {
+  list-style: none;
+  padding: 2px 0 0 15px;
+  margin: 0;
 
-  & ul.tree {
-    width: 350px;
-    height: 100%;
-    background: #333;
-    color: #f2f2f2;
-    font-size: 12px;
-    padding: 5px 0;
-
-    transition: all 0.15s ease-in-out;
-    & .sub-tree:not(.is-visible) {
-      display: none;
-    }   
-
-    & > .tree-item {
-      padding-left: 15px;
-      padding-right: 15px;
-    }
-
-    & .tree-item {      
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      // padding-right: 15px;
-      position: relative;
-      
-
-      &.title, &.search {
-        flex-direction: row;
-        width: 100%;
-        justify-content: flex-start;
-        align-content: center;
-        align-items: center;
-      }
-
-      &.title {
-        margin: 5px 0;
-        padding-bottom: 10px;
-
-        & .feather {
-          cursor: pointer;
-        }
-      }
-
-      & > .search-icon {
-        color: inherit;
-        margin: 0 !important;
-      }
-
-      & > input.search {
-        color: inherit;
-        border: none;
-        border-bottom: 1px solid #333;
-        background: transparent;
-        margin: 10px 0 10px 5px;
-        width: 100%;
-
-        &:focus {
-          outline: none;
-        }
-      }      
-
-      &.has-children {
-        & > .header > .status {
-          cursor: default;
-        }
-      }
-
-      // &.is-selected {
-      //   & > .header {
-      //     background: #333;
-      //     color: #f2f2f2;
-      //   }
-      // }
-
-      & > .header {
-        display: flex;
-        // width: 100%;
-        padding: 0 10px 0 0;
-
-        & > .name {        
-          cursor: pointer;          
-          white-space: nowrap; 
-          overflow: hidden;
-          text-overflow: ellipsis;
-          user-select: none;
-        }
-
-        & > .status {  
-          display: inline-block;
-          padding: 0;
-          margin: 0 5px 0 0;
-
-          &.normal {
-            color: green; 
-            /* fill: green; */
-          }
-          &.warning {
-            color: orange; 
-            /* fill: green; */
-          }
-          &.critical {
-            color: red; 
-            /* fill: green; */
-          }
-          &.deactivated {
-            color: grey; 
-            /* fill: grey; */
-          }
-        }
-      }        
-    }
-    
-  }
-
-  &.dark {
-    & ul.tree {
-      color: #f2f2f2;
-    }
-
-    & ul.tree .tree-item.is-selected > .header {
-      color: #333;
-    }
-
-    & ul.tree {
-      background: #333;
-    }
-
-    & ul.tree .tree-item.is-selected > .header {
-      background: #f2f2f2;
-    }
-
-    & .tree-item.title {
-      border-bottom: 3px solid #f2f2f2;
-      transition: border-bottom 0.15s ease-in-out;
-    }
-    
-    & input.search {      
-      border-bottom-color: rgb(75, 75, 75) !important;
-      caret-color: rgb(155, 155, 155);
-    }
-  }
-  
-  &.light {
-    & ul.tree {
-     color: #333;
-    }
-
-    & ul.tree .tree-item.is-selected > .header {
-     color: #f2f2f2;
-    }
-
-    & ul.tree {
-      background: #f2f2f2;
-    }
-
-    & ul.tree .tree-item.is-selected > .header {
-      background: #333;
-    }
-
-    & .tree-item.title {
-      border-bottom: 3px solid #333;
-      transition: border-bottom 0.15s ease-in-out;
-    }
-    
-    & input.search,  {      
-      border-bottom-color: rgb(150, 150, 150) !important;
-      caret-color: rgb(75, 75, 75);
-    }
+  & > .tree-item {
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
 
+
+.sub-tree:not(.is-visible) {
+  display: none;
+}   
+
+
+
+.tree-item {      
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // padding-right: 15px;
+  position: relative;
+
+  &.has-children {
+    & > .header > .status {
+      cursor: default;
+    }
+  }
+
+  // &.is-selected {
+  //   & > .header {
+  //     background: #333;
+  //     color: #f2f2f2;
+  //   }
+  // }
+
+  & > .header {
+    display: flex;
+    // width: 100%;
+    padding: 0 10px 0 0;
+
+    & > .name {        
+      cursor: pointer;          
+      white-space: nowrap; 
+      overflow: hidden;
+      text-overflow: ellipsis;
+      user-select: none;
+    }
+
+    & > .status {  
+      display: inline-block;
+      padding: 0;
+      margin: 0 5px 0 0;
+
+      &.normal {
+        color: green; 
+        /* fill: green; */
+      }
+      &.warning {
+        color: orange; 
+        /* fill: green; */
+      }
+      &.critical {
+        color: red; 
+        /* fill: green; */
+      }
+      &.deactivated {
+        color: grey; 
+        /* fill: grey; */
+      }
+    }
+  }
+}

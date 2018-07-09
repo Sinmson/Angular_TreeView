@@ -1,0 +1,19 @@
+<ul class="deepdive tree">
+  <li class="tree-item title">
+    <h2 class="">Deepdive</h2>  
+  </li>
+  <li class="tree-item search">
+    <svg class="feather search-icon size-16px" title="Search">
+      <use xlink:href="/assets/feather-sprite.svg#search" />
+    </svg>
+    <input (input)="HandleSearchInput($event)" [(ngModel)]="SearchStr" class="search" type="search" placeholder="Search..."/>
+  </li>
+  <div class="tree-item" > <!-- *ngIf="SearchStr.length === 0; else tmplFilteredApplications" -->
+    <tree-item (subItemClicked)="HandleTreeItemClicked($event)" [treeItem]="ApplicationTreeItem"></tree-item>
+  </div>
+  <!-- <ng-template #tmplFilteredApplications>
+    <div class="tree-item">
+      <tree-item  (select)="HandleSelectedTreeItem($event)" [treeItem]="ApplicationTreeItemFiltered"></tree-item>
+    </div>
+  </ng-template> -->
+</ul>

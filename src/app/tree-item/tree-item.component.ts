@@ -4,8 +4,8 @@ import feather from "feather-icons";
 @Component({
   selector: "tree-item",
   templateUrl: "./tree-item.component.html",
-  styleUrls: ["./tree-item.component.scss"],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ["./tree-item.component.scss"]
+  // encapsulation: ViewEncapsulation.None
 })
 export class TreeItemComponent implements OnInit 
 {
@@ -28,17 +28,20 @@ export class TreeItemComponent implements OnInit
     return (("ContainsSearchStr" in this.TreeItem) && !this.TreeItem.ContainsSearchStr);
   }
 
-  @Output() select: EventEmitter<ITreeItem> = new EventEmitter();
+  @Output() subItemClicked: EventEmitter<ITreeItemClicked> = new EventEmitter();
 
-  protected ToggleIsSelected()
+  protected HandleTreeItemClicked(event, clickedTreeItem)
   {
-    this.TreeItem.IsSelected = !this.TreeItem.IsSelected;
+    this.subItemClicked.emit({ TreeItem: clickedTreeItem, CtrlKeyPressed: event.ctrlKey ? true : false });
+  }
+
+  protected PassTreeItemClickedToParent(clickedTreeItemEvent: ITreeItemClicked,)
+  {       
+    this.subItemClicked.emit(clickedTreeItemEvent);
   }
 
   protected ToggleSubTreeVisibility()
-  {
-    console.log("ToggleSubTreeVisibility from ", this.TreeItem.ShowSubTree, " to ", !this.TreeItem);
-    
+  {    
     this.TreeItem.ShowSubTree = this.TreeItem.ShowSubTree ? false : true;
   }
 

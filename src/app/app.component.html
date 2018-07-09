@@ -1,43 +1,28 @@
 <div id="app" [ngClass]="Theme">
-  <ul class="tree">
-    <li class="tree-item title">
-      <h2 class="">Deepdive</h2>
+  <deepdive (select)="SelectedTreeItems = $event"></deepdive>
+  <div>
+    <div>
       <ng-container *ngIf="Theme == 'light'; then tmplThemeLight; else tmplThemeDark"></ng-container>      
       <ng-template #tmplThemeLight>  
-        <div title="Switch to Dark theme">
+        <div class="btn-theme" title="Switch to {{NextTheme}} theme">
           <svg class="feather size-16px" (click)="SwitchToNextTheme()">
             <use xlink:href="/assets/feather-sprite.svg#moon" />
           </svg> 
         </div>                     
       </ng-template>
       <ng-template #tmplThemeDark>
-        <div title="Switch to Light theme">
+        <div class="btn-theme" title="Switch to {{NextTheme}} theme">
           <svg class="feather size-16px" (click)="SwitchToNextTheme()">
             <use xlink:href="/assets/feather-sprite.svg#sun" />
           </svg>
         </div>
-      </ng-template>     
-      
-    </li>
-    <li class="tree-item search">
-      <svg class="feather search-icon size-16px" title="Search">
-        <use xlink:href="/assets/feather-sprite.svg#search" />
-      </svg>
-      <input (input)="HandleSearchInput($event)" [(ngModel)]="SearchStr" class="search" type="search" placeholder="Search..."/>
-    </li>
-    <div class="tree-item" > <!-- *ngIf="SearchStr.length === 0; else tmplFilteredApplications" -->
-      <tree-item  [treeItem]="ApplicationTreeItem"></tree-item>
+      </ng-template>
     </div>
-    <!-- <ng-template #tmplFilteredApplications>
-      <div class="tree-item">
-        <tree-item  (select)="HandleSelectedTreeItem($event)" [treeItem]="ApplicationTreeItemFiltered"></tree-item>
-      </div>
-    </ng-template> -->
-  </ul>
-  <div>
-    <li *ngFor="let selectedTreeItem of SelectedTreeItems">
-      {{selectedTreeItem.Name}}
-    </li>
+    <ul>
+      <li *ngFor="let selectedTreeItem of SelectedTreeItems">
+        {{selectedTreeItem.Name}}
+      </li>
+    </ul>
   </div>
 </div>
 

@@ -14,9 +14,9 @@
     TreeItem.Severity == null }">
       <use xlink:href="/assets/feather-sprite.svg#circle" />
     </svg> -->
-    <span class="name" (click)="ToggleIsSelected()">{{TreeItem.Name}}</span>
+    <span class="name" (click)="HandleTreeItemClicked($event, TreeItem)">{{TreeItem.Name}}</span>
   </div>
   <ul class="sub-tree" [class.is-visible]="TreeItem.ShowSubTree">
-    <tree-item *ngFor="let treeItemChilld of SortedChildren" [treeItem]="treeItemChilld"></tree-item>
+    <tree-item *ngFor="let treeItemChilld of SortedChildren" (subItemClicked)="PassTreeItemClickedToParent($event)" [treeItem]="treeItemChilld"></tree-item>
   </ul>
 </li>

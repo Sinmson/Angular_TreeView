@@ -1,0 +1,31 @@
+@import "variables.scss";
+
+#app.light {
+  background: $color-light;
+
+  & ul.tree {
+    color: $color-light;
+  }
+
+  & ul.tree .tree-item.is-selected > .header, .btn-theme {
+    color: $color-dark;
+  }
+
+  & ul.tree {
+    background: $color-dark;
+  }
+
+  & ul.tree .tree-item.is-selected > .header {
+    background: $color-light;
+  }
+
+  & .tree-item.title {
+    border-bottom: 3px solid $color-light;
+    transition: border-bottom 0.15s ease-in-out;
+  }
+  
+  & input.search {      
+    border-bottom-color: $color-light-2 !important;
+    caret-color: $color-light-2;
+  }
+}

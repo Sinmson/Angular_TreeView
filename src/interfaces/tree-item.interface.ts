@@ -9,3 +9,9 @@ interface ITreeItem
   ContainsSearchStr? : boolean;
   // Parent?: ITreeItem | null;
 }
+
+interface ITreeItemClicked
+{
+  TreeItem: ITreeItem;
+  CtrlKeyPressed: boolean;
+}

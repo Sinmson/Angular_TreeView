@@ -4,11 +4,13 @@ import { FormsModule } from "@angular/forms";
 
 import { AppComponent } from "./app.component";
 import { TreeItemComponent } from "./tree-item/tree-item.component";
+import { DeepdiveComponent } from "./deepdive/deepdive.component";
 
 @NgModule({
   declarations: [
     AppComponent,
-    TreeItemComponent
+    TreeItemComponent,
+    DeepdiveComponent
   ],
   imports: [
     BrowserModule,

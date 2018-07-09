@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import "variables.scss";
 
 *, *::before, *::after {
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
 }
 
-html, body, #app {
+html, body, app-root, #app {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -13,12 +14,22 @@ html, body, #app {
   min-height: 100%;
   font-family: 'Open Sans', sans-serif;
   display: flex;
+  flex: 1;
+  transition: all 0.15s ease-in-out;    
+}
+
+#app {
+  justify-content: space-between;
 }
 
 h1,h2,h3,h4,h5 {
   margin: 0;
   display: flex;
   flex: 1;
+}
+
+.btn-theme {
+  cursor: pointer;
 }
 
 [hidden] { display: none !important;}

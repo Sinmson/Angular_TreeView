@@ -1,23 +1,23 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { TreeItemComponent } from "./tree-item.component";
+import { DeepdiveComponent } from "./deepdive.component";
 
-describe("TreeItemComponent", () => 
+describe("DeepdiveComponent", () => 
 {
-  let component: TreeItemComponent;
-  let fixture: ComponentFixture<TreeItemComponent>;
+  let component: DeepdiveComponent;
+  let fixture: ComponentFixture<DeepdiveComponent>;
 
   beforeEach(async(() => 
   {
     TestBed.configureTestingModule({
-      declarations: [TreeItemComponent]
+      declarations: [DeepdiveComponent]
     })
     .compileComponents();
   }));
 
   beforeEach(() => 
   {
-    fixture = TestBed.createComponent(TreeItemComponent);
+    fixture = TestBed.createComponent(DeepdiveComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
